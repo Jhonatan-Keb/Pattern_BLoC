@@ -3,6 +3,8 @@ import 'counter_events.dart';
 
 class CounterBloc extends Bloc<CounterEvent, int> {
   CounterBloc() : super(0) {
-    on<CounterIncrements>((event, emit) => emit(state + 1));
+    on<CounterIncrement>((event, emit) => emit(state + 1));
+    on<CounterDecrement>((event, emit) => emit(state - 1));
+    on<CounterReset>((event, emit) => emit(0));
   }
 }
